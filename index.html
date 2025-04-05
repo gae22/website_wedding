@@ -48,7 +48,7 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                width: 400px;
+                width: 450px;
                 height: 100%;
                 background: rgba(0, 0, 0, 0.8);
                 color: white;
@@ -178,14 +178,14 @@
 
             <!-- Main panel always visible on the right side of the globe -->
              <div id="mainPanel">
-                <h2 id="markerTitleMain">Benvenuti nel Sito Ufficiale del matrimonio di Giusy e Andrea</h2>
+                <h2><strong><span id="markerTitleMain">Benvenuti nel Sito Ufficiale del matrimonio di Giusy e Andrea</span></strong></h2>
                 <img id="markerImageMain" src="Foto_AndreaGiusy.jpeg"">
                 <p><strong><span id="markerDetailsMain">Siamo felici di invitarvi al nostro matrimonio al caldo!</span></strong></p>
-                <p id="extraInfoMain">Clicca sull'icona rossa per scoprirne di più!</p>
+                <p id="extraInfoMain">Clicca sull'icona rossa nella ridente e selvaggia Brianza per scoprirne di più!</p>
 
                     <!-- Gift Slider -->
                 <div class="slider-container">
-                    <label for="giftSlider">Vuoi fare un regalo? Sposta il cursore per visualizzare le località che vorremmo visitare:</label>
+                    <label for="giftSlider">Sposta il cursore per visualizzare le località che vorremmo visitare:</label>
                     <input type="range" id="giftSlider" min="0" max="2000" step="10" value="0">
                     <p id="giftAmount">Movi il cursore e clicca sulle icone gialle!: €0</p>
                 </div>
@@ -277,24 +277,28 @@
             // Red marker (always visible)
             const redMarker = {
                 lat: 45.6497, lng: 9.3589, size: 20, color: 'red',
-                name: "Informazioni importanti",
+                name: "I dettagli importanti",
                 description: `
-                <p><strong>Data:</strong> 31 Luglio 2024, 16:00</p>
-                <p><strong>Luogo:</strong> Chiesa di Santa Maria Assunta, Usmate Velate</p>
-                <p><strong>Ricevimento:</strong> 
+                <p>Data: 31 Luglio 2025</p>
+                <p>Alle 16:00 la cerimonia presso la <em>Chiesa di Santa Maria Assunta</em> <a href="https://www.google.com/maps/place/Church+of+Saint+Mary+of+the+Assumption/@45.6494225,9.3427709,17z/data=!4m14!1m7!3m6!1s0x4786b076a97251b9:0x1ecedc2c3a6ea528!2sChurch+of+Saint+Mary+of+the+Assumption!8m2!3d45.6494225!4d9.3427709!16s%2Fg%2F12hxh59gq!3m5!1s0x4786b076a97251b9:0x1ecedc2c3a6ea528!8m2!3d45.6494225!4d9.3427709!16s%2Fg%2F12hxh59gq?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" style="color: whute;"> Piazza Santa Maria Assunta 6, </a> Usmate Velate (MB) </p>
+                <p>E dato che Anna vuole la sua parte celebreremo anche il suo battesimo.</p>    
+                <br>
+                <p>A seguire il ricevemento nel cuore del Parco di Monza al 
                     <a href="https://saintgeorges.it/" target="_blank" style="color: yellow; text-decoration: underline;">
                         Ristorante Saint George Premier
-                    </a> - Viale di Cesano 7, Parco di Monza
+                    </a> </p>
+                    <p>Viale di Cesano 7, Parco di Monza
                 </p>
-                <br>
-                <p>Dato che ci piace esagerare, celebreremo anche il battesimo della piccola Anna.</p>
                 `,
                 image: "Foto_AndreaGiusy.jpeg",
                 extra: `
                     <br>
                     <p>-----------------------------------------------------</p>
-                    <p>I soldi non fanno la felicità ma il viaggio di nozze si. Fateci scappare:</p>
-                    <p><strong>IT34W0302501601TB8880419500</strong></p>
+                    <p>I soldi non fanno la felicità ma il viaggio di nozze si. </p>
+                    <p>Fateci scappare con un bonifico:</p>
+                    <p><strong>Intestatario:</strong> Andrea Cottino (ma Giusy controlla!)
+                    <p><strong>IBAN:</strong> IT34W0302501601TB8880419500</p>
                     <p>-----------------------------------------------------</p>
                 `,
             };
