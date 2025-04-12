@@ -48,7 +48,7 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                width: 450px;
+                width: 430px;
                 height: 100%;
                 background: rgba(0, 0, 0, 0.8);
                 color: white;
@@ -90,6 +90,15 @@
                 margin-bottom: 10px;
                 object-fit: contain;
             }
+
+            #markerImageMain {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
             #closeBtn {
                 position: absolute;
                 top: 10px;
@@ -99,6 +108,10 @@
                 background: none;
                 border: none;
                 color: white;
+            }
+            
+            .image_divider {
+                width: 100%;
             }
 
             /* Slider */
@@ -179,7 +192,7 @@
             <!-- Main panel always visible on the right side of the globe -->
              <div id="mainPanel">
                 <h2><strong><span id="markerTitleMain">Benvenuti nel Sito Ufficiale del matrimonio di Giusy e Andrea</span></strong></h2>
-                <img id="markerImageMain" src="Foto_AndreaGiusy.jpeg"">
+                <img id="markerImageMain" src="IMG_1343.jpeg" alt="Image" />
                 <p><strong><span id="markerDetailsMain">Siamo felici di invitarvi al nostro matrimonio al caldo!</span></strong></p>
                 <p id="extraInfoMain">Clicca sull'icona rossa nella ridente e selvaggia Brianza per scoprirne di più!</p>
 
@@ -270,8 +283,16 @@
                     image: "https://i.pinimg.com/736x/e0/b3/9d/e0b39de139ed656413d74c22e725fc0f.jpg",
                     extra: "Dai grattacieli di Manhattan ai quartieri bohémien di Brooklyn, New York offre energia pura a ogni angolo. Tra Broadway, Central Park e Times Square, vivremo una luna di miele nel cuore pulsante del mondo.",
                     cost: 11300
+                },
+                {
+                    lat: -18.7669 , lng: 46.8691, size: 20, color: 'yellow',
+                    name: "Madagascar", description: "Un'isola magica tra baobab maestosi e lemuri danzanti, dove la natura incanta e il tempo sembra fermarsi.",
+                    image: "https://i.pinimg.com/736x/c6/2f/81/c62f8170972a651c6b4f810dd733b539.jpg",
+                    extra: "Dalle foreste pluviali alle spiagge incontaminate, il Madagascar è un mondo a sé, dove la natura regna sovrana. Tra baobab secolari, lemuri curiosi e acque turchesi, vivremo una luna di miele sospesa tra terra e sogno.",
+                    cost: 10000
                 }
             ];
+
 
 
             // Red marker (always visible)
@@ -279,27 +300,28 @@
                 lat: 45.6497, lng: 9.3589, size: 20, color: 'red',
                 name: "I dettagli importanti",
                 description: `
+                <br>
                 <p>Data: 31 Luglio 2025</p>
-                <p>Alle 16:00 la cerimonia presso la <em>Chiesa di Santa Maria Assunta</em> <a href="https://www.google.com/maps/place/Church+of+Saint+Mary+of+the+Assumption/@45.6494225,9.3427709,17z/data=!4m14!1m7!3m6!1s0x4786b076a97251b9:0x1ecedc2c3a6ea528!2sChurch+of+Saint+Mary+of+the+Assumption!8m2!3d45.6494225!4d9.3427709!16s%2Fg%2F12hxh59gq!3m5!1s0x4786b076a97251b9:0x1ecedc2c3a6ea528!8m2!3d45.6494225!4d9.3427709!16s%2Fg%2F12hxh59gq?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
-                    target="_blank" style="color: whute;"> Piazza Santa Maria Assunta 6, </a> Usmate Velate (MB) </p>
+                <br>
+                <p>Alle 16:00 la cerimonia presso la <a href="https://www.google.com/maps/place/Church+of+Saint+Mary+of+the+Assumption/@45.6494225,9.3427709,17z/data=!4m14!1m7!3m6!1s0x4786b076a97251b9:0x1ecedc2c3a6ea528!2sChurch+of+Saint+Mary+of+the+Assumption!8m2!3d45.6494225!4d9.3427709!16s%2Fg%2F12hxh59gq!3m5!1s0x4786b076a97251b9:0x1ecedc2c3a6ea528!8m2!3d45.6494225!4d9.3427709!16s%2Fg%2F12hxh59gq?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" style="color: yellow; text_decoration: underline;"> <em>Chiesa di Santa Maria Assunta</em>, Piazza Santa Maria Assunta 6, Usmate Velate (MB)</a> </p>
                 <p>E dato che Anna vuole la sua parte celebreremo anche il suo battesimo.</p>    
                 <br>
                 <p>A seguire il ricevemento nel cuore del Parco di Monza al 
-                    <a href="https://saintgeorges.it/" target="_blank" style="color: yellow; text-decoration: underline;">
+                    <a href="https://saintgeorges.it/" target="_blank" style="color: yellow;">
                         Ristorante Saint George Premier
                     </a> </p>
-                    <p>Viale di Cesano 7, Parco di Monza
+                    <p>Viale di Cesano 7, Parco di Monza (MB)
                 </p>
                 `,
-                image: "Foto_AndreaGiusy.jpeg",
+                image: ["chiesa.jpg", "sgp.png", "IMG_1343.jpeg"],
                 extra: `
                     <br>
-                    <p>-----------------------------------------------------</p>
+                    <img class="image-divider", src="divider.png" />
                     <p>I soldi non fanno la felicità ma il viaggio di nozze si. </p>
                     <p>Fateci scappare con un bonifico:</p>
                     <p><strong>Intestatario:</strong> Andrea Cottino (ma Giusy controlla!)
                     <p><strong>IBAN:</strong> IT34W0302501601TB8880419500</p>
-                    <p>-----------------------------------------------------</p>
                 `,
             };
 
@@ -329,7 +351,7 @@
                     };
                     return el;
                 });
-
+            
             //openMainPanel(redMarker); // Open the main panel with red marker info
 
             //TODO: Fare pannello iniziale aperto a destra. Pannello gialli che si aprono dopo
@@ -351,13 +373,37 @@
 
             //}
 
-            function updateRightPanel(data){
+            let carouselInterval = null ; // Define it outside the function to clear if needed
+            function updateRightPanel(data) {
                 document.getElementById('mainPanel').style.right = "0px";
                 document.getElementById('markerTitleMain').innerText = data.name;
                 document.getElementById('markerDetailsMain').innerHTML = data.description;
-                document.getElementById('markerImageMain').src = data.image;
                 document.getElementById('extraInfoMain').innerHTML = data.extra;
-                // Show the slider only if the red marker is clicked
+
+                const imageElement = document.getElementById('markerImageMain');
+
+                // Stop any existing carousel
+                if (carouselInterval) {
+                    clearInterval(carouselInterval);
+                    carouselInterval = null;
+                }
+
+                // Use carousel if images array is provided
+                if (Array.isArray(data.image) && data.image.length > 0) {
+                    let index = 0;
+                    imageElement.src = data.image[index]; // show first image
+
+                    carouselInterval = setInterval(() => {
+                        index = (index + 1) % data.image.length;
+                        imageElement.src = data.image[index];
+                    }, 3000);
+                } else if (data.image) {
+                    imageElement.src = data.image;
+                } else {
+                    imageElement.src = ''; // fallback if no image
+                }
+
+                // Slider toggle
                 if (data.color === 'red') {
                     document.querySelector('.slider-container').style.display = 'block';
                 } else {
@@ -438,7 +484,7 @@
             const giftSlider = document.getElementById('giftSlider');
             giftSlider.addEventListener('input', function () {
                 const amount = parseInt(this.value);
-                document.getElementById('giftAmount').innerText = `Scegli qui e guarda la magia!: €${amount}`;
+                document.getElementById('giftAmount').innerText = `Muovi il cursore e clicca sulle icone gialle: €${amount}`;
                 
                 const scaledLocations = mapLocationCostForGuests(locations, amount);
 
