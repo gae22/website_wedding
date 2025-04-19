@@ -100,7 +100,7 @@
             }
 
             #closeBtn {
-                position: absolute;
+                position: relative;
                 top: 10px;
                 right: 15px;
                 font-size: 1.2rem;
@@ -140,82 +140,32 @@
             }
 
             
-            @media (max-width: 768px) {
-            html, body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
+            @media (max-width: 576px) {
+                html, body {
                 font-size: 14px;
-                overflow-x: hidden; /* Prevent horizontal scrolling */
-                overflow-y: auto; /* Allow vertical scrolling */
-                background-color: black;
+                margin: auto()
             }
 
             #container {
-                display: flex;
                 flex-direction: column;
-                height: 100vh;
-                overflow: hidden;
             }
 
-            /* Main panel at the bottom, always visible */
+            #infoPanel, #mainPanel {
+                position: relative; /* Allow panels to flow with the page */
+                width: 100%; /* Full width on smaller screens */
+                height: auto; /* Adjust height to fit content */
+            }
+
+            #infoPanel {
+                z-index: 50; /* Ensure it overlays other content when needed */
+            }
+
             #mainPanel {
-                position: relative;
-                width: 100%;
-                height: 30vh;
-                z-index: 10;
-                order: 2;
-                overflow: hidden;
+                z-index: 50; /* Lower z-index to stay behind the info panel */
             }
 
-            /* Globe section at the top by default */
-            #globeContainer {
-                width: 100%;
-                flex: 1 1 auto;
-                order: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: height 0.3s ease;
-            }
-
-            #globeViz {
-                width: 100%;
-                height: 100%;
-                max-height: 100%;
-                max-width: 100%;
-            }
-
-            /* Info panel is hidden by default */
-            #infoPanel {
-                position: relative;
-                width: 100%;
-                max-height: 0;
-                background: rgba(0, 0, 0, 0.85);
-                color: white;
-                padding: 0 10px;
-                overflow: hidden;
-                order: 0;
-                z-index: 20;
-                transition: max-height 0.3s ease;
-            }
-
-            /* Visible infoPanel class, triggered by JS */
-            .mobile-info-visible #infoPanel {
-                max-height: 30vh;
-                padding: 10px;
-            }
-
-            .mobile-info-visible #globeContainer {
-                flex: 0 1 auto;
-                height: 40vh; /* Reduce globe height when info is shown */
-            }
-
-            /* Prevent scrolling inside main and info panels */
-            #mainPanel,
-            #infoPanel {
-                overflow: hidden;
-                scroll-behavior: smooth;
+            #globeContainer, #globeViz {
+                height: 50vh;
             }
 
             #giftSlider::-webkit-slider-thumb {
@@ -223,6 +173,7 @@
                 height: 30px;
             }
         }
+
         </style>
     </head>
     
@@ -403,7 +354,8 @@
                 });
             
             //openMainPanel(redMarker); // Open the main panel with red marker info
-
+            const ctrls = world.controls();
+            ctrls.enableZoom = false;
             //TODO: Fare pannello iniziale aperto a destra. Pannello gialli che si aprono dopo
             // Function to open the info panel
             function openInfoPanel(data) {
@@ -468,7 +420,8 @@
 
             // Auto-rotate
             world.controls().autoRotate = true;
-            world.controls().autoRotateSpeed = 0.35;
+            world.controls().autoRotateSpeed = 0.55;
+            world.controls().enableRotate = false;
         
             // Add clouds sphere
             const CLOUDS_IMG_URL = './clouds.png'; // from https://github.com/turban/webgl-earth
