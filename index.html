@@ -148,24 +148,38 @@
 
             #container {
                 flex-direction: column;
-            }
-
-            #infoPanel, #mainPanel {
-                position: static; /* Allow panels to flow with the page */
-                width: 100%; /* Full width on smaller screens */
-                height: auto; /* Adjust height to fit content */
+                align-items: center; /* Center content horizontally */
+                justify-content: flex-start;
             }
 
             #infoPanel {
-                z-index: 200; /* Ensure it overlays other content when needed */
+                position: relative; /* Stack naturally */
+                left: 0; /* Make visible */
+                width: 100%;
+                height: auto;
+                z-index: 200;
+                transition: none; /* Remove slide-in effect on mobile */
             }
 
             #mainPanel {
-                z-index: 50; /* Lower z-index to stay behind the info panel */
+                position: relative;
+                width: 100%;
+                height: auto;
+                z-index: 100;
             }
 
             #globeContainer, #globeViz {
+                width: 100%;
                 height: 50vh;
+                order: 1; /* Ensure it stays between panels */
+            }
+
+            #infoPanel {
+                order: 0; /* Top of the layout */
+            }
+
+            #mainPanel {
+                order: 2; /* Bottom of the layout */
             }
 
             #giftSlider::-webkit-slider-thumb {
