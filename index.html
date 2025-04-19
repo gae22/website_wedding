@@ -148,13 +148,22 @@
             }
 
             #container {
+                flex: auto;
                 flex-direction: column;
             }
 
-            #infoPanel, #mainPanel {
+            #mainPanel {
+                margin: auto;
                 position: relative; /* Allow panels to flow with the page */
                 width: 100%; /* Full width on smaller screens */
-                height: auto; /* Adjust height to fit content */
+                height: fit-content; /* Adjust height to fit content */
+            }
+
+            #infoPanel {
+                margin: auto;
+                position: relative; /* Allow panels to flow with the page */
+                width: 100%; /* Full width on smaller screens */
+                height: fit-content; /* Adjust height to fit content */
             }
 
             #infoPanel {
@@ -165,8 +174,10 @@
                 z-index: 50; /* Lower z-index to stay behind the info panel */
             }
 
-            #globeContainer, #globeViz {
-                height: 50vh;
+            #globeContainer, globeViz{
+                position: relative;
+                height: 10vh;
+                margin: auto;
             }
 
             #giftSlider::-webkit-slider-thumb {
@@ -421,8 +432,8 @@
 
             // Auto-rotate
             world.controls().autoRotate = true;
-            world.controls().autoRotateSpeed = 0.55;
-            world.controls().enableRotate = false;
+            world.controls().autoRotateSpeed = 0.35;
+            world.controls().enableRotate = true;
         
             // Add clouds sphere
             const CLOUDS_IMG_URL = './clouds.png'; // from https://github.com/turban/webgl-earth
