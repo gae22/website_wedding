@@ -140,46 +140,49 @@
             }
 
             
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            body {
+            @media (max-width: 768px) {
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
                 font-size: 14px;
             }
 
             #container {
                 flex-direction: column;
-                align-items: center; /* Center content horizontally */
-                justify-content: flex-start;
+                height: 100vh;
+                overflow: hidden;
             }
 
-            #infoPanel {
-                position: relative; /* Stack naturally */
-                left: 0; /* Make visible */
-                width: 100%;
-                height: auto;
-                z-index: 200;
-                transition: none; /* Remove slide-in effect on mobile */
-            }
-
-            #mainPanel {
+            #infoPanel, #mainPanel, #globeContainer {
                 position: relative;
                 width: 100%;
-                height: auto;
-                z-index: 100;
-            }
-
-            #globeContainer, #globeViz {
-                width: 100%;
-                height: 50vh;
-                order: 1; /* Ensure it stays between panels */
+                height: 33.33vh; /* Divide screen height equally into 3 parts */
+                z-index: 0;
             }
 
             #infoPanel {
-                order: 0; /* Top of the layout */
+                left: 0;
+                transition: none;
+                order: 0;
+                overflow-y: auto;
+            }
+
+            #globeContainer {
+                order: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #globeViz {
+                width: 100%;
+                height: 100%;
             }
 
             #mainPanel {
-                order: 2; /* Bottom of the layout */
+                order: 2;
+                overflow-y: auto;
             }
 
             #giftSlider::-webkit-slider-thumb {
@@ -410,7 +413,7 @@
                     carouselInterval = setInterval(() => {
                         index = (index + 1) % data.image.length;
                         imageElement.src = data.image[index];
-                    }, 3000);
+                    }, 5000);
                 } else if (data.image) {
                     imageElement.src = data.image;
                 } else {
